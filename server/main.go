@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/hugos68/rplace/middleware"
+	"github.com/Hugos68/rplace/middleware"
 )
 
 func main() {

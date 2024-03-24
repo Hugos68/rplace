@@ -1,3 +1,3 @@
-module github.com/hugos68/rplace
+module github.com/Hugos68/rplace
 
 go 1.22.1

@@ -11,7 +11,10 @@ func main() {
 
 	loadRoutes(router)
 
-	mw := middleware.Chain(middleware.Logging)
+	mw := middleware.Chain(
+		middleware.Logging,
+		middleware.Auth,
+	)
 
 	server := http.Server{
 		Addr:    ":8080",

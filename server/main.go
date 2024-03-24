@@ -7,13 +7,22 @@ import (
 )
 
 func main() {
+	router := http.NewServeMux()
 
-	mw := middleware.Chain()
+	loadRoutes(router)
+
+	mw := middleware.Chain(middleware.Logging)
 
 	server := http.Server{
 		Addr:    ":8080",
-		Handler: mw,
+		Handler: mw(router),
 	}
 
 	server.ListenAndServe()
+}
+
+func loadRoutes(router *http.ServeMux) {
+	router.HandleFunc("GET /hello", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello, World!"))
+	})
 }
